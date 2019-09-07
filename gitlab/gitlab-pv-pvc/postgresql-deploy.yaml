@@ -29,8 +29,9 @@ spec:
         - name: postgres
           containerPort: 5432
         volumeMounts:
-        - mountPath: /var/lib/postgresql
-          name: pgdata
+        - name: pgdata
+          subPath: postgresql
+          mountPath: /var/lib/postgresql
         livenessProbe:
           exec:
             command:

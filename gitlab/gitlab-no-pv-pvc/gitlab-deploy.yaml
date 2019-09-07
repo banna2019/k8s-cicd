@@ -32,7 +32,7 @@ spec:
         - name: GITLAB_ROOT_EMAIL
           value: 517554016@qq.com
         - name: GITLAB_HOST
-          value: git.qikqiak.com
+          value: git.banna.com
         - name: GITLAB_PORT
           value: "80"
         - name: GITLAB_SSH_PORT
@@ -68,7 +68,7 @@ spec:
           containerPort: 22
         volumeMounts:
         - mountPath: /home/git/data
-          name: gitdata
+          name: data
         livenessProbe:
           httpGet:
             path: /
@@ -82,6 +82,5 @@ spec:
           initialDelaySeconds: 5
           timeoutSeconds: 1
       volumes:
-      - name: gitdata
-        persistentVolumeClaim:
-          claimName: gitlabpvc
+      - name: data
+        emptyDir: {}

@@ -20,8 +20,9 @@ spec:
         - name: redis
           containerPort: 6379
         volumeMounts:
-        - mountPath: /var/lib/redis
-          name: redisdata
+        - name: redisdata
+          subPath: redis
+          mountPath: /var/lib/redis
         livenessProbe:
           exec:
             command:
