@@ -45,10 +45,6 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        - name: GITLAB_HOST
-          value: git.banna.com
-        - name: GIT_SSL_NO_VERIFY 
-          value: "1" 
         ports:
         - containerPort: 9100
           name: http-metrics
