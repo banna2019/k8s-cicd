@@ -1,0 +1,38 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-web-ui
+  namespace: kube-ops
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - host: jenkins2.banna.com
+    http:
+      paths:
+      - path: /ingress
+        backend:
+          serviceName: traefik-web-ui
+          servicePort: web
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins2
+  namespace: kube-ops
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/app-root: /jenkins
+    traefik.ingress.kubernetes.io/rule-type: PathPrefix
+    traefik.frontend.passHostHeader: "true"
+spec:
+  rules:
+  - host: jenkins2.banna.com
+    http:
+      paths:
+      - path: /jenkins
+        backend:
+          serviceName: jenkins2
+          servicePort: web

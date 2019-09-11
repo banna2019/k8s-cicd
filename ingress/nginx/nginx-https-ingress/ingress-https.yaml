@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tls-example-ingress
+  namespace: ingress-nginx
+spec:
+  tls:
+  - hosts:
+    - sslexample.foo.com
+    secretName: sslexample-foo-com
+  rules:
+    - host: sslexample.foo.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: nginx-service
+            servicePort: 80

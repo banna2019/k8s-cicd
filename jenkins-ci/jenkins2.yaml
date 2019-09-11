@@ -63,23 +63,3 @@ spec:
         persistentVolumeClaim:
           claimName: opspvc
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: jenkins2
-  namespace: kube-ops
-  labels:
-    app: jenkins2
-spec:
-  selector:
-    app: jenkins2
-  type: NodePort
-  ports:
-  - name: web
-    port: 8080
-    targetPort: web
-    nodePort: 30002
-  - name: agent
-    port: 50000
-    targetPort: agent
