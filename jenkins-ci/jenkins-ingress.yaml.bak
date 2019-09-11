@@ -1,3 +1,4 @@
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -5,11 +6,18 @@ metadata:
   namespace: kube-ops
   annotations:
     kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/app-root: /jenkins
+    traefik.ingress.kubernetes.io/rule-type: PathPrefix
+    traefik.frontend.passHostHeader: "true"
 spec:
   rules:
   - host: jenkins2.banna.com
     http:
       paths:
-      - backend:
+      - path: /
+        backend:
           serviceName: jenkins2
           servicePort: 8080
+
+
+参考博客地址: https://www.qikqiak.com/post/how-to-protect-exposed-k8s-server/
