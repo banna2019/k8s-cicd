@@ -6,7 +6,7 @@ data:
         health
         hosts {
         10.11.10.9 git.banna.com
-        10.11.10.9 registry.qikqiak.com
+        10.11.10.9 registry.banna.com
         fallthrough
         }
         kubernetes cluster.local in-addr.arpa ip6.arpa {
