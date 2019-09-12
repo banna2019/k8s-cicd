@@ -49,6 +49,8 @@ spec:
           subPath: jenkins2
           mountPath: /var/jenkins_home
         env:
+        - name: GIT_SSL_NO_VERIFY
+          value: "1"
         - name: LIMITS_MEMORY
           valueFrom:
             resourceFieldRef:
