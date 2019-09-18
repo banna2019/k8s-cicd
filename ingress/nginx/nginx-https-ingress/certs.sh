@@ -41,9 +41,9 @@ EOF
 
 cfssl gencert -initca ca-csr.json | cfssljson -bare ca -
 
-cat > sslexample.foo.com-csr.json <<EOF
+cat > nginx.banna-csr.json <<EOF
 {
-  "CN": "sslexample.foo.com",
+  "CN": "nginx.banna.com",
   "hosts": [],
   "key": {
     "algo": "rsa",
@@ -59,6 +59,6 @@ cat > sslexample.foo.com-csr.json <<EOF
 }
 EOF
 
-cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes sslexample.foo.com-csr.json | cfssljson -bare sslexample.foo.com 
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes nginx.banna.com-csr.json | cfssljson -bare nginx.banna.com 
 
 #kubectl create secret tls blog-ctnrs-com --cert=blog.ctnrs.com.pem --key=blog.ctnrs.com-key.pem

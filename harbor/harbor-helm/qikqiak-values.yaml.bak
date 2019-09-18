@@ -4,14 +4,14 @@ expose:
     enabled: true
   ingress:
     hosts:
-      core: registry.qikqiak.com
-      notary: notary.qikqiak.com
+      core: registry.banna.com
+      notary: notary.banna.com
     annotations:
       kubernetes.io/ingress.class: "traefik"
       ingress.kubernetes.io/ssl-redirect: "true"
       ingress.kubernetes.io/proxy-body-size: "0"
 
-externalURL: https://registry.qikqiak.com
+externalURL: https://registry.banna.com
 
 persistence:
   enabled: true

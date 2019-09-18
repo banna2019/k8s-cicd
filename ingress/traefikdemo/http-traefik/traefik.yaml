@@ -20,8 +20,10 @@ spec:
       terminationGracePeriodSeconds: 60
       tolerations:
       - operator: "Exists"
-      nodeSelector:
-        kubernetes.io/hostname: node01
+        effect: "NoSchedule"
+        key: "node-role.kubernetes.io/master"
+#      nodeSelector:
+#        kubernetes.io/hostname: node01
       containers:
       - image: traefik
         name: traefik-ingress-lb

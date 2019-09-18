@@ -5,17 +5,18 @@ data:
         errors
         health
         hosts {
-        10.11.10.9 git.banna.com
-        10.11.10.9 registry.banna.com
+        172.21.40.250 git.banna.com
+        172.21.40.250 registry.banna.com
         fallthrough
         }
         kubernetes cluster.local in-addr.arpa ip6.arpa {
            pods insecure
            upstream
            fallthrough in-addr.arpa ip6.arpa
+           ttl 30
         }
         prometheus :9153
-        proxy . /etc/resolv.conf
+        forward . /etc/resolv.conf
         cache 30
         loop
         reload
@@ -23,9 +24,9 @@ data:
     }
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2019-09-03T13:03:19Z"
+  creationTimestamp: "2019-09-18T03:47:03Z"
   name: coredns
   namespace: kube-system
-  resourceVersion: "206"
+  resourceVersion: "195"
   selfLink: /api/v1/namespaces/kube-system/configmaps/coredns
-  uid: 33987e50-ce4b-11e9-891a-02e97b96fe6c
+  uid: 9d4f9885-3643-41bd-b191-3ad57cd800d5

@@ -7,9 +7,9 @@ spec:
   tls:
   - hosts:
     - sslexample.foo.com
-    secretName: sslexample-foo-com
+    secretName: nginx-banna-com
   rules:
-    - host: sslexample.foo.com
+    - host: nginx.banna.com
       http:
         paths:
         - path: /

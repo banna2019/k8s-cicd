@@ -9,7 +9,7 @@ spec:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
   nfs:
-    server: 10.11.10.144
+    server: 172.21.40.249
     path: /data/k8s
 
 ---
